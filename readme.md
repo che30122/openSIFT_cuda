@@ -7,8 +7,11 @@ We also change some code foked from [opensift](https://github.com/robwhess/opens
 
 ## Requirements
 The code requires the [OpenCV library](http://sourceforge.net/projects/opencvlibrary/) (we use version 4.5.1)
+
 Some functions require [GTK+2](http://www.gtk.org/)
+
 The OpenCV installation guide can be found [here](https://vitux.com/opencv_ubuntu/)
+
 In order to run parallelized version, [CUDA](https://developer.nvidia.com/cuda-downloads) is needed (we use version 11.2)
 
 ## Building
