@@ -13,6 +13,8 @@ In order to run parallelized version, [CUDA](https://developer.nvidia.com/cuda-d
 
 ## Building
 
+    $ mkdir bin
+
     $ cd src
 
 Make
