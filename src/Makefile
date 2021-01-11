@@ -16,11 +16,11 @@ OPENCV_LIBS= `pkg-config --libs opencv gtk+-2.0`
 all: sift conv cvsmooth
 
 cvsmooth: cvsmooth.o
-	$(CC) $(CFLAGS)  cvsmooth.cpp $(INC_OPENCV) $(OPENCV_INC) $(OPENCV_LIBS) -o cvsmooth
+	$(CC) $(CFLAGS)  cvsmooth.cpp $(INC_OPENCV) $(OPENCV_INC) $(OPENCV_LIBS) -o $(BIN_DIR)/cvsmooth
 sift: $(OBJ)
-	$(NVCC) $(NVCCFLAGS) $(OBJ)  $(INC_OPENCV) $(OPENCV_LIBS) -G -o sift
+	$(NVCC) $(NVCCFLAGS) $(OBJ)  $(INC_OPENCV) $(OPENCV_LIBS) -G -o  $(BIN_DIR)/sift
 conv: main.o convolution_3channel.o
-	$(NVCC) $(NVCCFLAGS) main.o convolution_3channel.o  $(INC_OPENCV) $(OPENCV_LIBS) -o conv
+	$(NVCC) $(NVCCFLAGS) main.o convolution_3channel.o  $(INC_OPENCV) $(OPENCV_LIBS) -o  $(BIN_DIR)/conv
 cvsmooth.o: cvsmooth.cpp
 	$(CC) $(CFLAGS) -c cvsmooth.cpp $(INC_OPENCV) $(OPENCV_INC) $(OPENCV_LIBS)
 main.o: main.cpp
@@ -49,6 +49,6 @@ convolution.o: convolution.cu
 convolution_3channel.o: convolution_3channel.cu
 	$(NVCC) $(NVCC_FLAGS) -c convolution_3channel.cu $(INC_OPENCV)  $(OPENCV_LIBS) -lopencv_gpu
 clean:
-	rm -f *~ *.o sift conv cvsmooth
+	rm -f *~ *.o  $(BIN_DIR)/*
 
 .PHONY: clean
